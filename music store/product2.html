@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="product.css">
+   <!-- custom js file link  -->
+   <script src="products.js" defer></script>
+    
+  <body>
+      <nav class="navbar">
+      <div class="logo"><a href="#">Musicmaze</a></div>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+       </nav>
+   
+   <div class="container">
+   <h3 class="title"> Music Instruments </h3>
+   <div class="filter-container">
+      <h2>Shop by Filter</h2>
+      <label for="price-range">Price Range:</label>
+      <select id="price-range" onchange="filterProducts()">
+         <option value="all">All</option>
+         <option value="0-5000">₹0 - ₹5,000</option>
+         <option value="5000-15000">₹5,000 - ₹15,000</option>
+         <option value="15000-30000">₹15,000 - ₹30,000</option>
+         <option value="30000-50000">₹30,000 - ₹50,000</option>
+      </select>
+      
+      <label for="instrument-type">Instrument Type:</label>
+      <select id="instrument-type" onchange="filterProducts()">
+         <option value="all">All</option>
+         <option value="string">String</option>
+         <option value="keyboard">Keyboard</option>
+         <option value="wind">Wind</option>
+         <option value="folk">Folk</option>
+         <option value="percussion">Percussion</option>
+      </select>
+   </div>
+
+   <div class="products-container">
+
+      <div class="product" data-name="p-10">
+         <img src="images/black drums.jpeg" alt="image">
+         <h3>Black Drums
+            <p>|Percussion|</p>
+         </h3>
+         <div class="price">₹13,200</div>
+      </div>
+
+      <div class="product" data-name="p-11">
+         <img src="images/violin.jpeg" alt="image">
+         <h3>Violin
+            <p>|String Instruments|</p>
+         </h3>
+         <div class="price">₹25,000</div>
+      </div>
+
+      <div class="product" data-name="p-12">
+         <img src="images/portable piano.png" alt="image">
+         <h3>Portable Piano
+            <p>|Keyboard Instruments|</p>
+         </h3>
+         <div class="price">₹22,999</div>
+      </div>
+
+      <div class="product" data-name="p-13">
+         <img src="images/flute.png" alt="image">
+         <h3>Flute
+            <p>|Wind Instruments|</p>
+         </h3>
+         <div class="price">₹1,999</div>
+      </div>
+
+      <div class="product" data-name="p-14">
+         <img src="images/cellooss.jpeg" alt="image">
+         <h3>Cellos
+            <p>|String Instruments|</p>
+         </h3>
+         <div class="price">₹9,899</div>
+      </div>
+
+      <div class="product" data-name="p-15">
+         <img src="images/Xylophone.png" alt="image">
+         <h3>Xylophone
+            <p>|Percussion|</p>
+         </h3>
+         <div class="price">₹14,641</div>
+      </div>
+      </div>
+
+   </div>
+
+</div>
+
+<div class="products-preview">
+
+   <div class="preview" data-target="p-10">
+      <i class="fas fa-times"></i>
+      <img src="images/black drums.jpeg" alt="image">
+      <h3>Black Drums</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p>Standard drum set with bass, snare, and cymbals.
+    </p>
+      <div class="price">₹13,200</div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/a0qg3-Jqp1s?si=gMN6QmoRaxSNtYep" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+
+   <div class="preview" data-target="p-11">
+      <i class="fas fa-times"></i>
+      <img src="images/violin.jpeg" alt="image">
+      <h3>Violin</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p> Wooden string instrument played with bow or fingers.
+    </p>
+      <div class="price">₹25,000</div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/TKlFaLbzmbg?si=PcIJjh2H3gK35TyM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+
+   <div class="preview" data-target="p-12">
+      <i class="fas fa-times"></i>
+      <img src="images/portable piano.png" alt="image">
+      <h3>Portable Piano</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <span>( 250 )</span>
+      </div>
+     <p>Compact, electronic keyboard instrument with built-in speakers.
+    </p>
+      <div class="price">₹22,999</div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iGZKpdMI764?si=CK8f4VlvD3rFrpSJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+
+   <div class="preview" data-target="p-13">
+      <i class="fas fa-times"></i>
+      <img src="images/flute.png" alt="image">
+      <h3>Flute</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p>Woodwind instrument played by blowing air across embouchure.
+    </p>
+      <div class="price">₹1,999</div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/S4gCfROFJBE?si=y8p2ZfQtsE7qdkly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+
+   <div class="preview" data-target="p-14">
+      <i class="fas fa-times"></i>
+      <img src="images/cellooss.jpeg" alt="image">
+      <h3>Cellos</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+     <p> Large, stringed instrument played while seated with bow.
+    </p>
+      <div class="price">₹9,899</div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ueq1iyzAlw0?si=VKJs4IRt0IFx8CT_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+
+   <div class="preview" data-target="p-15">
+      <i class="fas fa-times"></i>
+      <img src="images/Xylophone.png" alt="image">
+      <h3>Xylophone</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p>Instrument with wooden bars played with mallets or sticks.
+    </p>
+      <div class="price">₹14,641</div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SB7nT43RbrU?si=m-ivhPfnBFW0QqNA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="buttons">
+         <a href="#" class="buy">buy now</a>
+         <a href="#" class="cart">add to cart</a>
+      </div>
+   </div>
+   </div>
+   <div class="page-btn">
+    <span><a href="products.html">1</a></span><!--no of pages-->
+    <span><a href="product2.html">2</a></span>
+    <span><a href="product3.html">&#8594</a></span><!--and arrow in the end-->
+</div>
+<div class="popup-overlay" id="popup-added">
+   <div class="popup-content">
+       <h2>Item Added to Cart!</h2>
+       <p>Your product has been successfully added to the cart.</p>
+       <button id="close-popup-added">Close</button>
+   </div>
+</div>
+
+<!-- Popup for Item Already in Cart -->
+<div class="popup-overlay" id="popup-existing">
+   <div class="popup-content">
+       <h2>Item Already in Cart</h2>
+       <p>This item is already in your cart.</p>
+       <button id="close-popup-existing">Close</button>
+   </div>
+</div>
+<footer>
+  <p>&copy; 2024 Music Store. All rights reserved.</p>
+</footer>
+</body>
+</html>
