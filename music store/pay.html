@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Payment Page</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 30px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .total-price {
+            font-size: 24px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .form-group {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .pay-btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .pay-btn:hover {
+            background-color: #218838;
+        }
+        /* Popup Styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .popup-content h2 {
+            margin: 0 0 20px 0;
+        }
+        .popup-content button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .popup-content button:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+            margin-top: -8px;
+            margin-right: -8px;
+            margin-left: -10px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar .logo {
+            text-align: left;
+            font-size: 25px;
+        }
+        .cart-icon {
+            margin-left: 5px;
+            font-size: 18px;
+            color: #00a4e6;
+            text-decoration: none;
+        }
+        .cart-icon i {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 150px;
+            margin-bottom: -10px;
+            margin-left: -8px;
+            margin-right: -10px;
+        }
+        @media (max-width: 991px) {
+            html {
+                font-size: 85%;
+            }
+        }
+        @media (max-width: 768px) {
+            .products-preview .preview img {
+                height: 25rem;
+            }
+        }
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="#">Musicmaze</a></div>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+    </nav>
+    <h1>Order Summary</h1>
+    <div class="container">
+        <div class="total-price">Total Price: ₹0</div>
+        
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Credit Card Number:</label>
+                <input type="text" id="card-number" name="card-number" required>
+            </div>
+            <div class="form-group">
+               <label for="address">Address:</label>
+               <input type="text" id="address" name="address" required>
+           </div>
+           <div class="form-group">
+               <label>Payment Method:</label>
+               <div>
+                   <label><input type="radio" name="payment-method" value="credit-card" checked> Credit Card</label>
+                   <label><input type="radio" name="payment-method" value="cash on delivery"> Cash On Delivery</label>
+                   <label><input type="radio" name="payment-method" value="bank-transfer"> Bank Transfer</label>
+               </div>
+           </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            </div>
+            <button type="submit" class="pay-btn">Pay Now</button>
+        </form>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content">
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your payment has been processed successfully.</p>
+            <button id="close-popup">Close</button><br>
+            <form action="order.html">
+                <button type="submit">Order History</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalPriceContainer = document.querySelector('.total-price');
+            const totalPrice = localStorage.getItem('totalPrice') || '₹0';
+            totalPriceContainer.textContent = `Total Price: ${totalPrice}`;
+
+            const paymentForm = document.getElementById('payment-form');
+            const popupOverlay = document.getElementById('popup-overlay');
+            const closePopupButton = document.getElementById('close-popup');
+
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const products = {
+            'p-1': { name: 'Acoustic Guitar', image: 'images/guitar acoustic.jpeg', price: '₹15,000' },
+            'p-2': { name: 'Sitar',           image: 'images/sitar.jpeg',          price: '₹5,000' },
+            'p-3': { name: 'Bass Guitar',     image: 'images/guitars bass.png',    price: '₹36,999' },
+            'p-4': { name: 'Tabla',           image: 'images/tabla.jpeg',           price: '₹3,999' },
+            'p-5': { name: 'Double Bass',     image: 'images/doublebaaass.png',     price: '₹11,899' },
+            'p-6': { name: 'Electric Guitar', image: 'images/guitar electric.jpeg', price: '₹25,000' },
+            'p-7': { name: 'Piano',           image: 'images/piano.jpeg',          price: '₹35,000' },
+            'p-8': { name: 'Saxophones',      image: 'images/saxophones.jpeg',    price: '₹12,000' },
+            'p-9': { name: 'Drums',           image: 'images/drums.jpeg',         price: '₹9,300' },
+            'p-10': { name: 'Black Drums',    image: 'images/black drums.jpeg',   price: '₹13,200' },
+            'p-11': { name: 'Violin',         image: 'images/violin.jpeg',        price: '₹25,000' },
+            'p-12': { name: 'Portable Piano', image: 'images/portable piano.png', price: '₹22,999' },
+            'p-13': { name: 'Flute',          image: 'images/flute.png',          price: '₹1,999' },
+            'p-14': { name: 'Cellos',        image: 'images/cellooss.jpeg',       price: '₹9,899' },
+            'p-15': { name: 'Xylophone',     image: 'images/Xylophone.png',       price: '₹14,641' }
+        };
+        
+        
+            const orderItems = cartItems.map(productId => products[productId]);
+            localStorage.setItem('orderItems', JSON.stringify(orderItems));
+            paymentForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission
+                popupOverlay.style.display = 'flex'; // Show the popup
+            });
+
+            closePopupButton.addEventListener('click', () => {
+                popupOverlay.style.display = 'none'; // Hide the popup
+                window.location.href = 'products.html'; // Redirect to home page or any other page after payment
+            });
+        });
+    </script>
+    <footer>
+        <p>&copy; 2024 Musicmaze. All rights reserved.</p>
+    </footer>
+</body>
+</html>

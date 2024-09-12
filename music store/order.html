@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .order-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .order-item img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .order-item-details {
+            flex: 1;
+        }
+        .order-item h3 {
+            margin: 0;
+        }
+        .order-item p {
+            margin: 5px 0;
+        }
+        .order-item .price {
+            font-weight: bold;
+        }
+        .order-item .delivery-info {
+            color: #555;
+        }
+        .back-to-cart {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .back-to-cart:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .order-item img {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .order-item img {
+                width: 60px;
+            }
+            .order-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .order-item img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> Cart</a>
+    </nav>
+
+    <div class="container">
+        <h1>Order History</h1>
+        <div id="order-list">
+            <!-- Order items will be dynamically inserted here -->
+        </div>
+        <a href="cart.html" class="back-to-cart">Back to Cart</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderItems = JSON.parse(localStorage.getItem('orderItems')) || [];
+            const orderList = document.getElementById('order-list');
+
+            if (orderItems.length === 0) {
+                orderList.innerHTML = '<p>No items found.</p>';
+                return;
+            }
+
+            orderItems.forEach(item => {
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item';
+
+                orderItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="order-item-details">
+                        <h3>${item.name}</h3>
+                        <p class="price">${item.price}</p>
+                        <p class="delivery-info">Order will be delivered within 4 days.</p>
+                    </div>
+                `;
+
+                orderList.appendChild(orderItem);
+            });
+        });
+    </script>
+     <footer>
+        <p>&copy; 2024 Musicmaze. All rights reserved.</p>
+    </footer>
+</body>
+</html>

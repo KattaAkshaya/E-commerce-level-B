@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  background-color: #333;
+  font-family: Calibri, sans-serif;
+  padding: 20px;
+  box-shadow: 0px 2px 2px 2px rgba(204, 203, 203, 0.5);
+}
+
+.navdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  font-size: 35px;
+  font-weight: 600;
+  color: white;;
+}
+
+ul.menu {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul.menu li {
+  margin-right: 25px;
+}
+
+ul.menu li a {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+ul.menu li a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  background-color: rgb(158, 219, 255);
+}
+
+.cart-icon {
+  font-size: 18px;
+  color: #00a4e6;
+  text-decoration: none;
+}
+
+.about-section, .details {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1, .details h1 {
+  text-align: center;
+}
+
+.about-section p, .details p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about-section img, .details img {
+  max-width: 600px; /* Set maximum width */
+  height: auto;
+  margin: 0 auto; /* Center the image */
+  display: block; /* Ensures the image behaves as a block element */
+  object-fit: cover;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 15px;
+  }
+
+  .logo a {
+    font-size: 30px;
+  }
+
+  ul.menu li a {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .about-section h1, .details h1 {
+    font-size: 24px;
+  }
+
+  .about-section img, .details img {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo a {
+    font-size: 28px;
+  }
+
+  ul.menu li a {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+
+  .about-section, .details {
+    padding: 15px;
+  }
+
+  .about-section h1, .details h1 {
+    font-size: 20px;
+  }
+
+  .about-section img, .details img {
+    max-width: 500px; /* Adjust if necessary */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    text-align: center;
+  }
+
+  .navdiv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul.menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul.menu li {
+    margin-bottom: 10px;
+  }
+
+  .logo a {
+    font-size: 24px;
+  }
+
+  .about-section, .details {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .about-section img, .details img {
+    max-width: 400px; /* Adjust to a smaller size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    font-size: 14px;
+  }
+
+  .logo a {
+    font-size: 20px;
+  }
+
+  ul.menu li a {
+    font-size: 12px;
+  }
+
+  .about-section h1, .details h1 {
+    font-size: 18px;
+  }
+
+  .about-section p, .details p {
+    font-size: 14px;
+  }
+
+  .about-section img, .details img {
+    max-width: 300px; /* Further adjust for very small screens */
+  }
+}
